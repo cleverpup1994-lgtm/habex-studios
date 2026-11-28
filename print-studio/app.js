@@ -13,6 +13,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x0f1115);
 const camera = new THREE.PerspectiveCamera(40, 1, 1, 5000);
+camera.up.set(0, 0, 1); // z is up, like a printer's build plate
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.maxPolarAngle = Math.PI / 2 - 0.08; // keep the camera above the build plate
@@ -35,7 +36,6 @@ scene.add(plate);
 const grid = new THREE.GridHelper(256, 16, 0x3a404d, 0x2a2f3a);
 grid.rotation.x = Math.PI / 2;
 scene.add(grid);
-camera.up.set(0, 0, 1);
 
 const matSolid = new THREE.MeshStandardMaterial({ color: 0xf2efe8, roughness: 0.55, metalness: 0 });
 const matLit = new THREE.MeshBasicMaterial({ vertexColors: true });
