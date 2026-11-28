@@ -15,6 +15,7 @@ scene.background = new THREE.Color(0x0f1115);
 const camera = new THREE.PerspectiveCamera(40, 1, 1, 5000);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
+controls.maxPolarAngle = Math.PI / 2 - 0.08; // keep the camera above the build plate
 
 scene.add(new THREE.HemisphereLight(0xffffff, 0x334455, 1.2));
 const key = new THREE.DirectionalLight(0xffffff, 2.2);
